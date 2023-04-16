@@ -1,0 +1,12 @@
+{
+  "name": "example",
+  "private": true,
+  "scripts": {
+    "test": "textlint ./**/*.md"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@x7ddf74479jn5/textlint-rule-preset-x7ddf74479jn5": "file:..",
+    "textlint": "link:../textlint"
+  }
+}
