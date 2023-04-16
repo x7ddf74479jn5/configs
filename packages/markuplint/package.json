@@ -1,0 +1,28 @@
+{
+  "name": "@x7ddf74479jn5/markuplint-config",
+  "version": "1.0.0",
+  "description": "x7ddf74479jn5's makrkuplint preset",
+  "scripts": {},
+  "keywords": [
+    "markuplint"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
+  "license": "MIT",
+  "homepage": "https://github.com/x7ddf74479jn5/configs/tree/main/packages/markuplint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x7ddf74479jn5/configs.git",
+    "directory": "packages/markuplint"
+  },
+  "bugs": {
+    "url": "https://github.com/x7ddf74479jn5/configs/issues"
+  },
+  "devDependencies": {
+    "@markuplint/jsx-parser": "3.6.1",
+    "@markuplint/react-spec": "3.6.1"
+  }
+}
