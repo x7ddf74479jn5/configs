@@ -1,0 +1,27 @@
+{
+  "name": "@x7ddf74479jn5/stylelint-config",
+  "version": "1.0.0",
+  "description": "x7ddf74479jn5's stylelint preset",
+  "keywords": [
+    "stylelint"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
+  "license": "MIT",
+  "homepage": "https://github.com/x7ddf74479jn5/configs/tree/main/packages/stylelint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x7ddf74479jn5/configs.git",
+    "directory": "packages/stylelint"
+  },
+  "bugs": {
+    "url": "https://github.com/x7ddf74479jn5/configs/issues"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "33.0.0",
+    "stylelint-order": "6.0.3"
+  }
+}

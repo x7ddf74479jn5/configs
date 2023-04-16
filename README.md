@@ -3,3 +3,4 @@
 - [TextLint](packages/textlint)
 - [ESLint (wip)](packages/eslint)
 - [Renovate](packages/renovate)
+- [Stylelint](packages/stylelint)
