@@ -1,6 +1,6 @@
 {
   "name": "@x7ddf74479jn5/textlint-rule-preset-x7ddf74479jn5",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "x7ddf74479jn5's textlint preset",
   "scripts": {
     "example": "pnpm build && cd example && pnpm it",
