@@ -1,0 +1,3 @@
+type fififi = {
+  filll: any;
+};
