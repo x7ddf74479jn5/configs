@@ -1,0 +1,68 @@
+{
+  "name": "@x7ddf74479jn5/eslint-config",
+  "version": "1.0.0",
+  "description": "x7ddf74479jn5's eslint config",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "default":"./dist/index.js"
+    }
+  },
+  "files": [
+    "presets",
+    "configs",
+    "dist"
+  ],
+  "type": "module",
+  "keywords": [
+    "eslint"
+  ],
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
+  "license": "MIT",
+  "homepage": "https://github.com/x7ddf74479jn5/configs/tree/main/packages/eslint#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x7ddf74479jn5/configs.git",
+    "directory": "packages/eslint"
+  },
+  "bugs": {
+    "url": "https://github.com/x7ddf74479jn5/configs/issues"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
+    "eslint-config-next": "13.3.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-sort-destructure-keys": "1.5.0"
+  },
+  "devDependencies": {
+    "@tsconfig/esm": "1.0.2",
+    "@tsconfig/node-lts": "18.12.1",
+    "@tsconfig/strictest": "2.0.0",
+    "@types/eslint": "8.37.0",
+    "@types/react": "18.0.34",
+    "eslint": "8.38.0",
+    "prettier": "2.8.7",
+    "react": "18.2.0",
+    "tsup": "6.7.0",
+    "typescript": "5.0.3"
+  },
+  "peerDependencies": {
+    "eslint": "^8.21.0",
+    "prettier": "^2.0.0",
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "tsup": "tsup"
+  }
+}
