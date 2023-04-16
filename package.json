@@ -1,0 +1,39 @@
+{
+  "name": "configs",
+  "version": "1.0.0",
+  "description": "x7ddf74479jn5's configs",
+  "main": "index.js",
+  "scripts": {
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish",
+    "lint": "eslint --fix **/*.{ts,d.ts,js,cjs,mjs}",
+    "prettier": "prettier --write --ignore-unknown **/*",
+    "prepare": "simple-git-hooks"
+  },
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
+  "license": "MIT",
+  "private": "true",
+  "homepage": "https://github.com/x7ddf74479jn5/configs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x7ddf74479jn5/configs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/x7ddf74479jn5/configs/issues"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.1",
+    "@types/node": "18.15.11",
+    "@x7ddf74479jn5/textlint-rule-preset-x7ddf74479jn5": "workspace:*",
+    "eslint": "8.38.0",
+    "lint-staged": "13.2.0",
+    "prettier": "2.8.7",
+    "simple-git-hooks": "2.8.1",
+    "textlint": "13.3.2",
+    "typescript": "5.0.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false -c lint-staged.mjs"
+  }
+}
