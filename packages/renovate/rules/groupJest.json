@@ -1,0 +1,12 @@
+{
+    "packageRules": [
+        {
+            "groupName": "jest",
+            "matchPackageNames": [
+                "jest",
+                "@types/jest",
+                "ts-jest"
+            ]
+        }
+    ]
+}

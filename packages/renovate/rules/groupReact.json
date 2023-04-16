@@ -1,0 +1,13 @@
+{
+    "packageRules": [
+        {
+            "groupName": "react",
+            "matchPackageNames": [
+                "react",
+                "@types/react",
+                "react-dom",
+                "@types/react-dom"
+            ]
+        }
+    ]
+}

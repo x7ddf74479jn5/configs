@@ -1,0 +1,11 @@
+{
+    "packageRules": [
+        {
+            "matchUpdateTypes": [
+                "patch",
+                "pin"
+            ],
+            "automerge": true
+        }
+    ]
+}

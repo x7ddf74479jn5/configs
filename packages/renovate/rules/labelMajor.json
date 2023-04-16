@@ -1,0 +1,10 @@
+{
+    "packageRules": [
+        {
+            "matchUpdateTypes": "major",
+            "addLabels": [
+                "major"
+            ]
+        }
+    ]
+}
