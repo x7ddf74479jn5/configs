@@ -1,7 +1,7 @@
 {
   "name": "@x7ddf74479jn5/renovate-config",
   "description": "x7ddf74479jn5's renovate config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/x7ddf74479jn5/configs.git",
