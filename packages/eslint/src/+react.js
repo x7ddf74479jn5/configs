@@ -1,0 +1,57 @@
+// @ts-check
+'use strict';
+
+/** @satisfies {import('ts-essentials').DeepReadonly<import('eslint').Linter.BaseConfig>} */
+module.exports = /** @type {const} */ ({
+  extends: [
+    // react
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime', // React 17 で追加された新しい JSX Transform を利用するための設定
+    'plugin:react-hooks/recommended',
+  ],
+  plugins: ['jsx-a11y'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  rules: {
+    // jsx-a11y
+    // 厳し過ぎるので off
+    'jsx-a11y/no-autofocus': 0,
+    // a 要素のラッパー・コンポーネントに {...props} で href をパスできるように
+    'jsx-a11y/anchor-is-valid': [
+      2,
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+
+    // react
+    // button タグの type 属性は省略すると文脈によってデフォルト値が変わってややこしいので、指定を必須にする
+    'react/button-has-type': 2,
+    // セキュリティ上の理由から、iframe には sandbox 属性を付与すべき
+    'react/iframe-missing-sandbox': 2,
+    // `disabled={true}` を `disabled` と書くように
+    'react/jsx-boolean-value': 2,
+    // `foo={'bar'}` を `foo="bar"` と書くように
+    'react/jsx-curly-brace-presence': ['error', 'never'],
+    // Tabnabbing 対策悪のため、target="_blank" な a タグには rel="noopener" を付与するように。
+    // IE11 もサポートする場合は noreferrer も必要だが、現代では IE11 はサポートしないので noopener のみで十分。
+    // ref: https://www.mizdra.net/entry/2020/10/28/234533
+    'react/jsx-no-target-blank': [2, { allowReferrer: true }],
+    // コーディングスタイル統一のため、`<Component />` の形式で記述できる場合はそのように記述する
+    'react/self-closing-comp': 2,
+    // 現代では TypeScript で型を制限することが多いので、propTypes は使わない
+    'react/prop-types': 0,
+    // jsx で React の import が必要だったが、React 17 より transpile の設定次第で不要になった
+    'react/react-in-jsx-scope': 0,
+  },
+});
