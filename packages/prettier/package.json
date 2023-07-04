@@ -1,0 +1,43 @@
+{
+  "name": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5",
+  "version": "0.0.0",
+  "description": "x7ddf74479jn5's prettier config",
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier --check ."
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "prettier",
+    "prettier-config"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
+  "license": "MIT",
+  "homepage": "https://github.com/x7ddf74479jn5/configs/tree/main/packages/prettier#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x7ddf74479jn5/configs.git",
+    "directory": "packages/prettier"
+  },
+  "bugs": {
+    "url": "https://github.com/x7ddf74479jn5/configs/issues"
+  },
+  "peerDependencies": {
+    "prettier": ">=2.4.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "autoinstall": true
+    }
+  },
+  "devDependencies": {
+    "prettier": "2.8.7"
+  }
+}

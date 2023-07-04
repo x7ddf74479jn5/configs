@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -170,6 +174,12 @@ importers:
       '@markuplint/react-spec':
         specifier: 3.6.1
         version: 3.6.1(@markuplint/ml-core@3.7.0)
+
+  packages/prettier:
+    devDependencies:
+      prettier:
+        specifier: 2.8.7
+        version: 2.8.7
 
   packages/renovate: {}
 
