@@ -1,19 +1,24 @@
 {
-  "name": "example",
+  "name": "node-app",
   "version": "1.0.0",
   "description": "",
   "type": "commonjs",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
   "license": "MIT",
   "devDependencies": {
+    "@tsconfig/node-lts": "18.12.1",
+    "@tsconfig/strictest": "2.0.0",
+    "@x7ddf74479jn5/eslint-config-x7ddf74479jn5": "workspace:*",
     "eslint": "8.38.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-import": "2.27.5",
     "typescript": "5.0.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
