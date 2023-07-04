@@ -1,198 +1,309 @@
-# @x7ddf74479jn5/eslint-config-x7ddf74479jn5
+# @x7ddf74479jn5/eslint-config
 
-ESLint config for @x7ddf74479jn5
+x7ddf744979j5のeslintプリセット。
 
 ## インストール
 
 ```sh
-pnpm add -D @x7ddf74479jn5/eslint-config-x7ddf74479jn5 eslint
+pnpm add -D @x7ddf74479jn5/eslint-config
 ```
 
 ## 使い方
 
-### legacy config から使う場合
+すべてのルールを有効化して使う場合は、次のように設定してください。
 
-```javascript
-// @ts-check
-****
-/** @type {import('eslint').Linter.BaseConfig} */
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5', '@x7ddf74479jn5/x7ddf74479jn5/+react', '@x7ddf74479jn5/x7ddf74479jn5/+prettier'],
-  parserOptions: { ecmaVersion: 2021 },
-  env: { es2021: true, node: true, browser: true, jest: true },
-  rules: {
-    // プロジェクト固有のルールをここに書く
-  },
-  overrides: [
-    // For TypeScript
-    {
-      files: ['*.ts', '*.tsx', '*.cts', '*.mts'],
-      extends: ['@x7ddf74479jn5/x7ddf74479jn5/+typescript', '@x7ddf74479jn5/x7ddf74479jn5/+prettier'],
-      rules: {
-        // TypeScript 向けのプロジェクト固有のルールをここに書く
-      },
-    },
-  ],
-};
+`eslint.config.js`
+
+```js
+// ESM
+import configs from "@x7ddf74479jn5/eslint-config";
+
+export default configs.react;
+
+// CommonJS
+const configs = require("@x7ddf74479jn5/eslint-config");
+
+module.exports = configs.react;
 ```
 
-### flat config から使う場合
+プリセットを拡張して使う場合は、次のように設定してください。設定はカスケードされるため後ろに書いてルールで上書きできます。
 
-```javascript
-// @ts-check
+`eslint.config.js`
 
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import globals from 'globals';
+```js
+// ESM
+import configs from "@x7ddf74479jn5/eslint-config";
 
-const __dirname = new URL('.', import.meta.url).pathname;
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  { ignores: ['**/dist'] },
-  ...compat.extends('@x7ddf74479jn5/x7ddf74479jn5', '@x7ddf74479jn5/x7ddf74479jn5/+react'),
+  ...configs.react,
   {
-    languageOptions: {
-      ecmaVersion: 2021,
-      globals: { ...globals.node, ...globals.browser, ...globals.jest },
-    },
-    rules: {
-      // Write your favorite rules
-    },
+    rules:{
+      "no-restricted-imports": [
+          "error",
+          {
+              patterns: ["@/features/*/*"],
+          },
+      ],
+    }
   },
-  ...compat.config({
-    overrides: [
-      {
-        // For TypeScript
-        files: ['*.ts', '*.tsx', '*.cts', '*.mts'],
-        extends: ['@x7ddf74479jn5/x7ddf74479jn5/+typescript.js'],
-        rules: {
-          // Write your favorite rules for TypeScript
-        },
-      },
-    ],
-  }),
-  ...compat.extends('@x7ddf74479jn5/x7ddf74479jn5/+prettier'),
+];
+
+// CommonJS
+const configs = require("@x7ddf74479jn5/eslint-config");
+
+module.exports = [
+  ...configs.node,
+  {
+    rules:{
+      "no-restricted-imports": [
+          "error",
+          {
+              patterns: ["@/features/*/*"],
+          },
+      ],
+    }
+  },
 ];
 ```
 
-## 組み込みの 3rd-party packages
+## 公開プリセット一覧
 
-利便性のため、`eslint-config-x7ddf74479jn5` は以下のパッケージを [`dependencies`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies) としてインストールします。そのため、これらのパッケージを `eslint-config-x7ddf74479jn5` を利用するプロジェクトの `devDependencies` としてインストールする必要はありません。
+| preset  | configs  |
+|---|---|
+| node  | base, typescript, prettier |
+| react | base, typescript, react, prettier |
+| next  | base, typescript, next, react, prettier |
 
-- [`@typescript-eslint/eslint-plugin`](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
-- [`@typescript-eslint/parser`](https://www.npmjs.com/package/@typescript-eslint/parser)
-- [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)
-- [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import)
-- [`eslint-plugin-jsx-a11y`](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
-- [`eslint-plugin-n`](https://www.npmjs.com/package/eslint-plugin-n)
-- [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)
-- [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)
-- [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)
-- [`eslint-plugin-simple-import-sort`](https://www.npmjs.com/package/eslint-plugin-simple-import-sort)
-- [`eslint-plugin-sort-destructure-keys`](https://www.npmjs.com/package/eslint-plugin-sort-destructure-keys)
+- preset: プリセット名
+- configs: 読み込んでいる設定集（下記参照）
 
-## 利用可能な config
+## 設定詳細
 
-### `@x7ddf74479jn5/x7ddf74479jn5`
+デフォルトでは、次のような設定になっています。個別にルールを有効・無効化することも可能です。
 
-基本的な rule をまとめた config です。利用するには、`parserOptions.ecmaVersion` と `env.es20XX` を指定する必要があります。
+### base
+
+基本の共通設定として各プリセットで読み込まれます。
+
+#### プラグイン一覧
+
+- `eslint-plugin-import`
+- `eslint-plugin-jsx-a11y`
+- `eslint-plugin-simple-import-sort`
+- `eslint-plugin-sort-destructure-keys`
 
 ```js
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5'],
-  parserOptions: { ecmaVersion: 2021 }, // required
-  env: { es2021: true }, // required
+// デフォルトで除外するディレクトリとファイル
+export const baseIgnores = [
+  "dist",
+  "out",
+  "build",
+  "generated",
+  "**/*.generated.ts",
+];
+
+export const baseConfig = {
+  plugins: {
+    import: imp,
+    "jsx-a11y": jsxA11y,
+    "simple-import-sort": simpleImportSort,
+    "sort-destructure-keys": sortDestructureKeys,
+  },
 };
-```
 
-### `@x7ddf74479jn5/x7ddf74479jn5/+node`
-
-Node.js で実行されるコード向けの config です。利用するには、[`eslint-plugin-n` のドキュメントに従って Node.js のバージョンを指定しておく](https://github.com/eslint-community/eslint-plugin-n#configured-nodejs-version-range)必要があります。
-
-```js
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5', '@x7ddf74479jn5/x7ddf74479jn5/+node'],
-  parserOptions: { ecmaVersion: 2019 },
-  env: { es2019: true },
-};
-```
-
-```json
-// package.json
-{
-  "name": "your-module",
-  "version": "1.0.0",
-  "engines": {
-    "node": ">=16.0.0" // required
-  }
-}
-```
-
-### `@x7ddf74479jn5/x7ddf74479jn5/+typescript`
-
-TypeScript 向けの config です。利用するには、`overrides` オプションを使用し、TypeScript のコードだけに config が適用されるようにしてください。
-
-```js
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5'],
-  parserOptions: { ecmaVersion: 2021 },
-  env: { es2021: true },
-  overrides: [
+export const baseRules = {
+  "import/newline-after-import": "error",
+  "jsx-a11y/no-autofocus": "off",
+  "jsx-a11y/anchor-is-valid": [
+    "error",
     {
-      files: ['*.ts', '*.tsx', '*.cts', '*.mts'],
-      // NOTE: prettier を利用する場合は @x7ddf74479jn5/x7ddf74479jn5/+typescript の後に
-      // @x7ddf74479jn5/x7ddf74479jn5/+prettier の extends も必要です。
-      extends: ['@x7ddf74479jn5/x7ddf74479jn5/+typescript'],
-      rules: {
-        // TypeScript 向けのプロジェクト固有のルールをここに書く
-      },
+      components: ["Link"],
+      specialLink: ["hrefLeft", "hrefRight"],
+      aspects: ["invalidHref", "preferButton"],
+    },
+  ],
+  "no-console": ["error", { allow: ["warn", "info", "error"] }],
+  "no-restricted-syntax": [
+    "error",
+    { selector: "TSEnumDeclaration", message: "Don't declare enums" },
+  ],
+  "prefer-arrow-callback": "error",
+  "prefer-const": "error",
+  "simple-import-sort/imports": "error",
+  "simple-import-sort/exports": "error",
+  "sort-destructure-keys/sort-destructure-keys": 2,
+};
+```
+
+### prettier
+
+基本の共通設定として各プリセットの最後で読み込まれます。
+
+#### コンフィグ一覧
+
+- `eslint-config-prettier`
+
+### typescript
+
+TypeScript共通設定として各プリセットで読み込まれます。
+
+#### コンフィグ一覧
+
+- `@typescript-eslint/eslint-plugin/eslint-recommended`
+- `@typescript-eslint/eslint-plugin/recommended`
+- `@typescript-eslint/eslint-plugin/recommended-requiring-checking`
+
+```js
+export const tsConfig = {
+  files: ["**/*.{ts,mts,cts,tsx}"],
+  plugins: {
+    "@typescript-eslint": ts,
+  },
+  languageOptions: {
+    parser: tsParser,
+    parserOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      project: "./tsconfig.json",
+    },
+  },
+  rules: {
+    ...ts.configs["eslint-recommended"].rules,
+    ...ts.configs["recommended"].rules,
+    ...ts.configs["recommended-requiring-type-checking"].rules,
+  },
+};
+
+export const tsRules = {
+  "@typescript-eslint/no-explicit-any": "off",
+  "@typescript-eslint/no-var-requires": "off",
+  "@typescript-eslint/explicit-module-boundary-types": "off",
+  "@typescript-eslint/consistent-type-imports": [
+    "warn",
+    { prefer: "type-imports" },
+  ],
+  "@typescript-eslint/no-import-type-side-effects": "error",
+  "@typescript-eslint/no-unused-vars": [
+    "error",
+    { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
+  ],
+  "@typescript-eslint/naming-convention": [
+    "error",
+    { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
+    { selector: ["method"], format: ["camelCase"] },
+    {
+      selector: "variable",
+      types: ["boolean"],
+      format: ["PascalCase"],
+      prefix: ["no", "is", "has", "should"],
+      filter: { regex: "^_", match: false },
     },
   ],
 };
 ```
 
-### `@x7ddf74479jn5/x7ddf74479jn5/+react`
-
-React を使っているコード向けの config です。`env.browser` を `true` にして利用することを推奨しています。
+### node
 
 ```js
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5', '@x7ddf74479jn5/x7ddf74479jn5/+react'],
-  parserOptions: { ecmaVersion: 2019 },
-  env: {
-    es2019: true,
-    browser: true, // recommended
+export const nodeRules = {
+  "no-console": "off",
+};
+```
+
+### react
+
+#### コンフィグ一覧
+
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+
+```js
+export const reactRules = {
+  "react/prop-types": "off",
+  "react/react-in-jsx-scope": "off",
+  "react/display-name": "error",
+  "react/jsx-handler-names": [
+    "error",
+    {
+      eventHandlerPrefix: "handle",
+      eventHandlerPropPrefix: "on",
+      checkLocalVariables: true,
+      checkInlineFunction: true,
+    },
+  ],
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "warn",
+};
+
+export const reactConfig = {
+  files: ["**/*.{tsx,jsx}"],
+  plugins: {
+    react: react,
+    "react-hooks": reactHooks,
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };
 ```
 
-### `@x7ddf74479jn5/x7ddf74479jn5/+prettier`
+### next
 
-Prettier を使っているコード向けの config です。全ての config の最後に extends することを想定しています。
+#### コンフィグ一覧
+
+- `eslint-config-next/core-web-vitals`
 
 ```js
-module.exports = {
-  root: true,
-  extends: ['@x7ddf74479jn5/x7ddf74479jn5', '@x7ddf74479jn5/x7ddf74479jn5/+prettier'],
-  parserOptions: { ecmaVersion: 2019 },
-  env: { es2019: true },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx', '*.cts', '*.mts'],
-      extends: ['@x7ddf74479jn5/x7ddf74479jn5/+typescript', '@x7ddf74479jn5/x7ddf74479jn5/+prettier'],
-    },
-  ],
+export const nextConfig = {
+  ...compat.extends("next/core-web-vitals"),
+  rules: {
+    "next/no-img-element": "off",
+  },
 };
+
+export const nextRules = [
+  {
+    files: [
+      "src/pages/**/*.tsx",
+      "src/pages/api/**/*.ts",
+      "src/app/**/{page,layout}.tsx",
+      "src/app/**/{sitemap,robots,manifest}.{js,ts,jsx,tsx}",
+    ],
+    rules: {
+      "import/no-default-export": "off",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
+        {
+          selector: ["classProperty", "typeProperty", "method"],
+          format: ["camelCase"],
+        },
+        {
+          selector: "variable",
+          types: ["boolean"],
+          format: ["PascalCase"],
+          prefix: ["is", "has", "should"],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/types/**/*.ts"],
+    rules: {
+      "@typescript-eslint/naming-convention": [
+        "error",
+        { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
+        { selector: ["classProperty", "method"], format: ["camelCase"] },
+        {
+          selector: "variable",
+          types: ["boolean"],
+          format: ["PascalCase"],
+          prefix: ["is", "has", "should"],
+        },
+      ],
+    },
+  },
+];
 ```
