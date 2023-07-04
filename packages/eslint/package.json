@@ -1,6 +1,6 @@
 {
   "name": "@x7ddf74479jn5/eslint-config-x7ddf74479jn5",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "x7ddf74479jn5's eslint config",
   "main": "./src/index.js",
   "exports": {
