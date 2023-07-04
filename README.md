@@ -4,3 +4,4 @@
 - [ESLint (wip)](packages/eslint)
 - [Renovate](packages/renovate)
 - [Stylelint](packages/stylelint)
+- [Prettier](packages/prettier)
