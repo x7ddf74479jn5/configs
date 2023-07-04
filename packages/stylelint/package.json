@@ -20,6 +20,10 @@
   "bugs": {
     "url": "https://github.com/x7ddf74479jn5/configs/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "stylelint-config-standard": "33.0.0",
     "stylelint-order": "6.0.3"
