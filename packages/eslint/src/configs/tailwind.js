@@ -1,4 +1,4 @@
-import tailwind from "eslint-plugin-tailwind";
+import tailwind from 'eslint-plugin-tailwind';
 
 export const tailwindConfig = {
   plugins: { tailwind },

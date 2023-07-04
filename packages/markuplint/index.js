@@ -1,9 +1,9 @@
 module.exports = {
-  extends: ["markuplint:recommended-react"],
+  extends: ['markuplint:recommended-react'],
   parser: {
-    ".[jt]sx$": "@markuplint/jsx-parser",
+    '.[jt]sx$': '@markuplint/jsx-parser',
   },
   specs: {
-    ".[jt]sx$": "@markuplint/react-spec",
+    '.[jt]sx$': '@markuplint/react-spec',
   },
 };

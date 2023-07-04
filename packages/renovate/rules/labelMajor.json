@@ -1,10 +1,8 @@
 {
-    "packageRules": [
-        {
-            "matchUpdateTypes": "major",
-            "addLabels": [
-                "major"
-            ]
-        }
-    ]
+  "packageRules": [
+    {
+      "matchUpdateTypes": "major",
+      "addLabels": ["major"]
+    }
+  ]
 }

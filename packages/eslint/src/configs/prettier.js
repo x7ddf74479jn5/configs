@@ -1,3 +1,3 @@
-import prettier from "eslint-config-prettier";
+import prettier from 'eslint-config-prettier';
 
 export const prettierRules = prettier.rules;

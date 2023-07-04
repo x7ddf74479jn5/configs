@@ -1,21 +1,15 @@
 module.exports = {
-  plugins: ["stylelint-order"],
-  extends: ["stylelint-config-standard"],
+  plugins: ['stylelint-order'],
+  extends: ['stylelint-config-standard'],
   rules: {
-    "at-rule-no-unknown": [
+    'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          "tailwind",
-          "apply",
-          "variants",
-          "responsive",
-          "screen",
-        ],
+        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'],
       },
     ],
-    "string-quotes": "single",
-    "order/properties-alphabetical-order": true,
+    'string-quotes': 'single',
+    'order/properties-alphabetical-order': true,
   },
-  ignoreFiles: ["**/node_modules/**"],
+  ignoreFiles: ['**/node_modules/**'],
 };

@@ -1,9 +1,9 @@
 module.exports = {
-  extends: ["@x7ddf74479jn5/markuplint-config"],
+  extends: ['@x7ddf74479jn5/markuplint-config'],
   rules: {
-    "invalid-attr": {
+    'invalid-attr': {
       options: {
-        ignoreAttrNamePrefix: "css",
+        ignoreAttrNamePrefix: 'css',
       },
     },
   },

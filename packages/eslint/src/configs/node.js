@@ -1,12 +1,12 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat();
 
 export const nodeConfig = {
   // ...compat.extends("plugin:node/recommended"),
-  files: ["**/*.js"],
+  files: ['**/*.js'],
   languageOptions: {
-    sourceType: "commonjs",
+    sourceType: 'commonjs',
   },
   // settings: {
   //   node: {
@@ -17,5 +17,5 @@ export const nodeConfig = {
 };
 
 export const nodeRules = {
-  "no-console": "off",
+  'no-console': 'off',
 };

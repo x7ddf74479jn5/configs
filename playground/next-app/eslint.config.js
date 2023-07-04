@@ -1,4 +1,4 @@
-const configs = require("@x7ddf74479jn5/eslint-config");
+const configs = require('@x7ddf74479jn5/eslint-config');
 
 module.exports = configs.next;
 

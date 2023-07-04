@@ -1,11 +1,8 @@
 {
-    "packageRules": [
-        {
-            "matchUpdateTypes": [
-                "patch",
-                "pin"
-            ],
-            "automerge": true
-        }
-    ]
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin"],
+      "automerge": true
+    }
+  ]
 }

@@ -1,7 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>x7ddf74479jn5/configs//packages/renovate",
-    ":followTag(typescript, next)"
-  ]
+  "extends": ["github>x7ddf74479jn5/configs//packages/renovate", ":followTag(typescript, next)"]
 }
