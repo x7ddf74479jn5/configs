@@ -1,22 +1,18 @@
 {
-  "name": "@x7ddf74479jn5/eslint-config",
+  "name": "@x7ddf74479jn5/eslint-config-x7ddf74479jn5",
   "version": "1.0.0",
   "description": "x7ddf74479jn5's eslint config",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./src/index.js",
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
+    ".": "./src/index.js",
+    "./+node": "./src/+node.js",
+    "./+typescript": "./src/+typescript.js",
+    "./+react": "./src/+react.js",
+    "./+prettier": "./src/+prettier.js"
   },
   "files": [
-    "presets",
-    "configs",
-    "dist"
+    "src"
   ],
-  "type": "module",
   "keywords": [
     "eslint"
   ],
@@ -31,38 +27,49 @@
   "bugs": {
     "url": "https://github.com/x7ddf74479jn5/configs/issues"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.58.0",
     "@typescript-eslint/parser": "5.58.0",
-    "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-n": "16.0.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
-    "eslint-plugin-sort-destructure-keys": "1.5.0"
+    "eslint-plugin-sort-destructure-keys": "1.5.0",
+    "eslint-plugin-unicorn": "47.0.0"
   },
   "devDependencies": {
-    "@tsconfig/esm": "1.0.2",
     "@tsconfig/node-lts": "18.12.1",
     "@tsconfig/strictest": "2.0.0",
     "@types/eslint": "8.37.0",
     "@types/react": "18.0.34",
     "eslint": "8.38.0",
+    "npm-run-all": "4.1.5",
     "prettier": "2.8.7",
-    "react": "18.2.0",
-    "tsup": "6.7.0",
+    "ts-essentials": "9.3.2",
     "typescript": "5.0.3"
   },
   "peerDependencies": {
     "eslint": "^8.21.0",
     "prettier": "^2.0.0",
-    "react": "^18.0.0",
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "tsup": "tsup"
-  }
+    "lint": "run-p -c -l lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc -p .",
+    "test": "cd test && pnpm run lint"
+  },
+  "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5"
 }
