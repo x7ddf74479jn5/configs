@@ -30,7 +30,6 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.58.0",
     "@typescript-eslint/parser": "5.58.0",
-    "@x7ddf74479jn5/eslint-config": "workspace:*",
     "@x7ddf74479jn5/markuplint-config": "workspace:*",
     "@x7ddf74479jn5/stylelint-config": "workspace:*",
     "eslint-config-prettier": "8.8.0",
