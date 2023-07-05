@@ -2,7 +2,6 @@
   "name": "@x7ddf74479jn5/markuplint-config",
   "version": "1.0.0",
   "description": "x7ddf74479jn5's makrkuplint preset",
-  "scripts": {},
   "keywords": [
     "markuplint"
   ],
@@ -27,6 +26,12 @@
   },
   "devDependencies": {
     "@markuplint/jsx-parser": "3.6.1",
-    "@markuplint/react-spec": "3.6.1"
-  }
+    "@markuplint/react-spec": "3.6.1",
+    "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*",
+    "prettier": "2.8.7"
+  },
+  "scripts": {
+    "lint": "prettier --check ."
+  },
+  "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5"
 }

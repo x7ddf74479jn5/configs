@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   // デフォルトは 80 だが、それだと現代のディスプレイ幅にとって小さすぎるので、120 とする
   printWidth: 120,

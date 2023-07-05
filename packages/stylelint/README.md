@@ -38,7 +38,7 @@ pnpm add -D @x7ddf74479jn5/stylelint-config
     "source.fixAll": true
   },
   //StyleLintはcssとscssファイルのみ
-  "stylelint.validate": ["css", "scss"],  
+  "stylelint.validate": ["css", "scss"],
   // VS Codeデフォルトのフォーマットは無効
   "css.validate": false,
   "scss.validate": false,

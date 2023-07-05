@@ -1,6 +1,6 @@
 # textlint-rule-preset-x7ddf74479jn5
 
-x7ddf744979j5のtextlintプリセット
+x7ddf744979j5 の textlint プリセット
 
 ## インストール
 
@@ -28,20 +28,20 @@ pnpm add -D @x7ddf74479jn5/textlint-preset-x7ddf74479jn5
 {
   "rules": {
     "@proofdict/proofdict": {
-      dictURL: "https://azu.github.io/proof-dictionary/",
+      "dictURL": "https://azu.github.io/proof-dictionary/"
     },
     "ja-hiragana-daimeishi": true,
     "ja-hiragana-fukushi": true,
     "ja-hiragana-hojodoushi": true,
     "ja-keishikimeishi": {
-      detection_hou_kata: false,
-      detection_ue: false,
+      "detection_hou_kata": false,
+      "detection_ue": false
     },
     "ja-nakaguro-or-halfwidth-space-between-katakana": true,
     "ja-no-abusage": true,
     "ja-no-mixed-period": {
-      allowPeriodMarks: [":", "…"],
-      allowEmojiAtEnd: true,
+      "allowPeriodMarks": [":", "…"],
+      "allowEmojiAtEnd": true
     },
     "ja-no-space-around-parentheses": true,
     "ja-no-space-between-full-width": true,
@@ -49,7 +49,7 @@ pnpm add -D @x7ddf74479jn5/textlint-preset-x7ddf74479jn5
     "ja-no-redundant-expression": true,
     "ja-no-weak-phrase": false,
     "ja-space-between-half-and-full-width": {
-      space: "never",
+      "space": "never"
     },
     "ja-space-after-exclamation": true,
     "ja-space-after-question": true,
@@ -57,20 +57,20 @@ pnpm add -D @x7ddf74479jn5/textlint-preset-x7ddf74479jn5
     "ja-space-around-link": false,
     "ja-unnatural-alphabet": true,
     "max-comma": {
-      max: 3,
+      "max": 3
     },
     "max-ten": {
-      max: 3,
+      "max": 3
     },
     "max-kanji-continuous-len": {
-      max: 6,
+      "max": 6
     },
     "no-doubled-conjunction": true,
     "no-doubled-conjunctive-particle-ga": true,
     "no-doubled-joshi": {
-      strict: false,
-      min_interval: 1,
-      allow: ["か", "が", "に"],
+      "strict": false,
+      "min_interval": 1,
+      "allow": ["か", "が", "に"]
     },
     "no-double-negative-ja": true,
     "no-dropping-the-ra": true,
@@ -80,17 +80,15 @@ pnpm add -D @x7ddf74479jn5/textlint-preset-x7ddf74479jn5
     "no-mixed-zenkaku-and-hankaku-alphabet": true,
     "no-unmatched-pair": true,
     "sentence-length": {
-      max: 150,
-    },  
-  },
+      "max": 150
+    }
+  }
 }
-
-
 ```
 
 ## 辞書
 
-表記ゆれ修正用の辞書の設定にはazuさんの`https://azu.github.io/proof-dictionary/`を使っています。
+表記ゆれ修正用の辞書の設定には azu さんの`https://azu.github.io/proof-dictionary/`を使っています。
 
 ## 設定ルール一覧
 

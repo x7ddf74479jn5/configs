@@ -17,7 +17,7 @@ pnpm add -D @markuplint/react-spec @markuplint/jsx-parser
 
 [Rules \| Markuplint](https://markuplint.dev/ja/docs/rules)
 
-Next.jsでemotionを使いたい場合、css属性が必要になるので以下のルールを追記など。
+Next.js で emotion を使いたい場合、css 属性が必要になるので以下のルールを追記など。
 
 `.markuplintrc.js`
 

@@ -3,6 +3,8 @@ packages/*/docs
 packages/*/coverage
 packages/*/__tests__/src
 packages/*/__tests__/dist
+playground/*
+packages/*
 jest.config.cjs
 !.*.js
 !.*.cjs

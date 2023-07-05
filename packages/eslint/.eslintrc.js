@@ -5,6 +5,6 @@
 module.exports = {
   root: true,
   extends: ['./src/index.js', './src/+node.js', './src/+prettier.js'],
-  parserOptions: { ecmaVersion: 2021 },
-  env: { es2021: true, node: true },
+  parserOptions: { ecmaVersion: 2023, node: true },
+  env: { es2023: true, node: true },
 };

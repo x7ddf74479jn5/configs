@@ -27,5 +27,12 @@
   "dependencies": {
     "stylelint-config-standard": "33.0.0",
     "stylelint-order": "6.0.3"
-  }
+  },
+  "devDependencies": {
+    "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*"
+  },
+  "scripts": {
+    "lint": "prettier --check ."
+  },
+  "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5"
 }

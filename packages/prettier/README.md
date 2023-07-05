@@ -1,6 +1,6 @@
 # @x7ddf74479jn5/prettier-config-x7ddf74479jn5
 
-x7ddf744979j5のprettierプリセット。
+x7ddf744979j5 の prettier プリセット。
 
 ## インストール
 

@@ -4,8 +4,8 @@
 module.exports = {
   root: true,
   extends: ['../src/index.js'],
-  parserOptions: { ecmaVersion: 2021 },
-  env: { es2021: true },
+  parserOptions: { ecmaVersion: 2023 },
+  env: { es2023: true, node: true },
   reportUnusedDisableDirectives: true,
   overrides: [
     {

@@ -6,8 +6,9 @@
   "scripts": {
     "ci:version": "changeset version",
     "ci:publish": "changeset publish",
-    "lint": "eslint --fix **/*.{ts,d.ts,js,cjs,mjs}",
-    "prettier": "prettier --write --ignore-unknown **/*",
+    "lint": "pnpm -r --bail run lint",
+    "format:": "prettier --write .",
+    "test": "pnpm -r --bail test",
     "prepare": "simple-git-hooks"
   },
   "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
@@ -24,7 +25,10 @@
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.1",
+    "@tsconfig/node-lts": "18.12.1",
+    "@tsconfig/strictest": "2.0.0",
     "@types/node": "18.15.11",
+    "@x7ddf74479jn5/eslint-config-x7ddf74479jn5": "workspace:*",
     "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*",
     "@x7ddf74479jn5/textlint-rule-preset-x7ddf74479jn5": "workspace:*",
     "eslint": "8.38.0",

@@ -1,14 +1,4 @@
 {
-  "extends": ["@tsconfig/strictest/tsconfig.json", "@tsconfig/node-lts/tsconfig.json"],
-  "exclude": ["node_modules", "test"],
-  "compilerOptions": {
-    "module": "NodeNext",
-    "noEmit": true,
-    "moduleResolution": "NodeNext",
-    "jsx": "react-jsxdev",
-
-    /* Lint Options */
-    "noUnusedLocals": false, // Delegate to @typescript-eslint/no-unused-vars in eslint
-    "noUnusedParameters": false // Delegate to @typescript-eslint/no-unused-vars in eslint
-  }
+  "extends": "../../tsconfig.json",
+  "exclude": ["test", "node_modules"]
 }

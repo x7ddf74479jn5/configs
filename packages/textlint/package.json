@@ -5,7 +5,8 @@
   "scripts": {
     "example": "pnpm build && cd example && pnpm it",
     "test": "textlint-scripts test",
-    "build": "textlint-scripts build"
+    "build": "textlint-scripts build",
+    "lint": "prettier --check ."
   },
   "keywords": [
     "textlint",
@@ -32,8 +33,13 @@
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@textlint/types": "13.3.2",
+    "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*",
+    "prettier": "2.8.7",
     "textlint-scripts": "13.3.2",
     "textlint-tester": "13.3.2"
   },
