@@ -1,0 +1,9 @@
+{
+  packageRules: [
+    // React 関連のライブラリをまとめる
+    {
+      groupName: 'react',
+      matchPackageNames: ['react', '@types/react', 'react-dom', '@types/react-dom'],
+    },
+  ],
+}

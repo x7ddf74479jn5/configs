@@ -1,0 +1,9 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>x7ddf74479jn5/configs//packages/renovate:default.json5',
+    'github>x7ddf74479jn5/configs//packages/renovate:+react.json5',
+    // "typescript"と"next"はセマンティックバージョニングの方針から外れ、タグに厳密に追従するようになります
+    ':followTag(typescript, next)',
+  ],
+}

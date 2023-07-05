@@ -1,4 +1,0 @@
-{
-  "extends": [":timezone(Asia/Tokyo)"],
-  "schedule": ["before 8am every weekday", "after 8pm every weekday"]
-}

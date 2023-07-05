@@ -1,47 +1,50 @@
-# Renovate config
+# @x7ddf74479jn5/renovate-config
 
-Renovate[共有 preset](https://docs.renovatebot.com/config-presets/)です。
+Renovate [共有 preset](https://docs.renovatebot.com/config-presets/) です。
 
 ## 使い方
 
 `renovate.json`に下記を記載する
 
+以下のファイルを `renovate.json` という名前でリポジトリ直下に置くと、
+
+`x7ddf74479jn5/renovate-config` は一般的なプロジェクト向けの preset である [`default.json5`](https://github.com/x7ddf74479jn5/configs/packages/renovate/blob/main/default.json5) と、その他いくつかの optional な preset を提供しています。基本的に `default.json5` を extends して、必要に応じて optional な preset を extends するような運用を想定しています。
+
+`default.json5` を extends するには、ご利用のプロジェクトのルートに `renovate.json` を作成し、以下のように記述します。
+
 ```json
 {
-  "extends": ["github>x7ddf74479jn5/configs//packages/renovate"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>x7ddf74479jn5/configs//packages/renovate:default.json5"]
+}
+```
+
+続けて optional な preset を extends するには、`renovate.json` を以下のように記述します。
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>x7ddf74479jn5/configs//packages/renovate:default.json5",
+    "github>x7ddf74479jn5/configs//packages/renovate:+lib.json5"
+  ]
 }
 ```
 
 ## 拡張例
 
-[examples](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/examples)に拡張例を載せています。
+[examples](https://github.com/x7ddf74479jn5/configs/tree/main/packages/renovate/examples)に拡張例を載せています。
 
-## preset一覧
+## Optional presets
 
-### [autoMergePinPatch](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/automergePinPatch.json)
+### [`+lib`](https://github.com/x7ddf74479jn5/configs/blob/main/packages/renovate/+lib.json5)
 
-version固定およびpatch updateのPRを自動マージ
+ライブラリ向けの preset です。`@x7ddf74479jn5/renovate-config` はデフォルトでアプリケーション向けに設定がカスタマイズされているため、ライブラリで利用する場合はこの preset を継承するようにしてください。
 
-### [autoMergeTypesMinor](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/automergeTypesMinor.json)
+### [`+react`](https://github.com/x7ddf74479jn5/configs/blob/main/packages/renovate/+react.json5)
 
-型定義のminor/patch updateを自動マージ
+React アプリケーション向けの preset です。React 関連のライブラリの更新をひとまとめにします。
 
-### [groupLinters](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/groupLinters.json)
+## LICENSE
 
-linter関連パッケージをグループ化
-
-### [groupJest](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/groupJest.json)
-
-jest関連パッケージをグループ化
-
-### [groupReact](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/groupReact.json)
-
-react関連パッケージをグループ化
-
-### [labelMajor](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/labelMajor.json)
-
-major update PRに`major`ラベル付与
-
-### [schedule](https://github.com/x7ddf74479jn5/configs/renovate/blob/main/schedule.json)
-
-日本時間平日の00:00 - 08:00, 20:00 - 24:00のみ稼働
+MIT

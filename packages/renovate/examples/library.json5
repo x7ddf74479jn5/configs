@@ -1,0 +1,8 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>x7ddf74479jn5/configs//packages/renovate:default.json5',
+    // library 開発向けの設定を追加します
+    'github>x7ddf74479jn5/configs//packages/renovate:+lib.json5',
+  ],
+}
