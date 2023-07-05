@@ -1,0 +1,65 @@
+name: Check
+on:
+  pull_request:
+    branches: [main]
+    paths: [packages/**]
+  workflow_dispatch:
+
+jobs:
+  generate_matrix:
+    name: Get changed packages
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.changed_packages.outputs.names }}
+      paths: ${{ steps.changed_packages.outputs.paths }}
+      empty: ${{ steps.changed_packages.outputs.empty }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Find changed packages
+        id: changed_packages
+        uses: alexshukel/get-changed-workspaces-action@v2.0.0
+        with:
+          workspaces: packages/*
+
+  lint:
+    name: Lint
+    needs: [generate_matrix]
+    if: ${{ !fromJson(needs.generate_matrix.outputs.empty) }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.generate_matrix.outputs.paths) }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Installing dependencies
+        run: pmpm install
+      - name: Lint
+        run: pnpm lint
+        working-directory: ${{ matrix.package }}
+
+  test:
+    name: Test
+    needs: [generate_matrix]
+    if: ${{ !fromJson(needs.generate_matrix.outputs.empty) }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.generate_matrix.outputs.paths) }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Installing dependencies
+        run: pmpm install
+      - name: Test
+        run: pnpm test
+        working-directory: ${{ matrix.package }}

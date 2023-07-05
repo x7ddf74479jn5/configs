@@ -23,7 +23,8 @@
   "scripts": {
     "lint": "run-p -l -c lint:*",
     "lint:prettier": "prettier --check --ignore-unknown **/*",
-    "lint:renovate": "renovate-config-validator"
+    "lint:renovate": "renovate-config-validator",
+    "test": "echo 'dummy script for CI'"
   },
   "devDependencies": {
     "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*",

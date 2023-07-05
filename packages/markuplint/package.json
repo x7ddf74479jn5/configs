@@ -31,7 +31,8 @@
     "prettier": "2.8.7"
   },
   "scripts": {
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "test": "echo 'dummy script for CI'"
   },
   "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5"
 }
