@@ -1,0 +1,6 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>x7ddf74479jn5/configs//packages/renovate:default.json5'],
+  // 0指定で上限なし
+  prConcurrentLimit: 0,
+}

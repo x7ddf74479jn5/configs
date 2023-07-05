@@ -1,0 +1,6 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>x7ddf74479jn5/configs//packages/renovate:default.json5'],
+  // ステータスチェックを無視し、PR を自動マージしたい場合にこのオプションを設定します
+  ignoreTests: true,
+}

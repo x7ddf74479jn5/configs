@@ -1,0 +1,6 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>x7ddf74479jn5/configs//packages/renovate:default.json5'],
+  // 日本時間平日の 10:00 - 16:00 のみ稼働
+  schedule: ['after 10am and before 4pm every weekday'],
+}

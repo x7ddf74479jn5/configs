@@ -3,4 +3,5 @@ packages/*/docs
 packages/*/coverage
 packages/*/__tests__/src
 packages/*/__tests__/dist
-*.md
+packages/*/CHANGELOG.md
+pnpm-lock.yaml
