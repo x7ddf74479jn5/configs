@@ -1,0 +1,12 @@
+'Type: Release':
+  - .changeset/**/*
+'Package: ESLint':
+  - packages/eslint/**/*
+'Package: Prettier':
+  - packages/Prettier/**/*
+'Package: TextLint':
+  - packages/textlint/**/*
+'Package: Renovate':
+  - packages/renovate/**/*
+'Package: Stylelint':
+  - packages/stylelint/**/*
