@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  // 各パッケージで設定
+  // "include": ["src/**/*"],
+  "compilerOptions": {
+    "noEmit": false,
+    // 各パッケージで設定
+    // "outDir": "./dist",
+    // "rootDir": "./src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}

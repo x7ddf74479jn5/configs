@@ -2,9 +2,21 @@
   "name": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5",
   "version": "1.0.0",
   "description": "x7ddf74479jn5's prettier config",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "prettier --check ."
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "prettier --check .",
+    "test:prettier": "cd test && pnpm lint"
   },
   "private": false,
   "publishConfig": {
@@ -14,9 +26,6 @@
   "keywords": [
     "prettier",
     "prettier-config"
-  ],
-  "files": [
-    "index.js"
   ],
   "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",
   "license": "MIT",
@@ -30,7 +39,7 @@
     "url": "https://github.com/x7ddf74479jn5/configs/issues"
   },
   "peerDependencies": {
-    "prettier": ">=2.4.0"
+    "prettier": ">=3.0.0"
   },
   "peerDependenciesMeta": {
     "prettier": {
@@ -38,6 +47,6 @@
     }
   },
   "devDependencies": {
-    "prettier": "2.8.7"
+    "prettier": "3.0.0"
   }
 }

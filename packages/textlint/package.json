@@ -39,7 +39,7 @@
   "devDependencies": {
     "@textlint/types": "13.3.2",
     "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "workspace:*",
-    "prettier": "2.8.7",
+    "prettier": "3.0.0",
     "textlint-scripts": "13.3.2",
     "textlint-tester": "13.3.2"
   },
