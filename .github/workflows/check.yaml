@@ -39,7 +39,9 @@ jobs:
           cache: pnpm
       - name: Installing dependencies
         run: pmpm install
-      - name: Lint
+      # - name: Lint only changed packages
+      # run: pnpm ci:lint
+      - name: Lint only changed packages
         run: pnpm lint
         working-directory: ${{ matrix.package }}
 
@@ -60,6 +62,8 @@ jobs:
           cache: pnpm
       - name: Installing dependencies
         run: pmpm install
-      - name: Test
+      # - name: Test only changed packages
+      #   run: pnpm ci:test
+      - name: Test only changed packages
         run: pnpm test
         working-directory: ${{ matrix.package }}

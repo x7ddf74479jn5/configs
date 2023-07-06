@@ -4,8 +4,7 @@
   "description": "x7ddf74479jn5's prettier config",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check .",
-    "test": "echo 'dummy script for CI'"
+    "lint": "prettier --check ."
   },
   "private": false,
   "publishConfig": {

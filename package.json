@@ -6,9 +6,11 @@
   "scripts": {
     "ci:version": "changeset version",
     "ci:publish": "changeset publish",
-    "lint": "pnpm -r --bail run lint",
+    "ci:lint": "pnpm --filter='{packages/**}[origin/main]' --changed-files-ignore-pattern='**/*.md' run lint",
+    "ci:test": "pnpm --filter='{packages/**}[origin/main]' --changed-files-ignore-pattern='**/*.md' test",
+    "lint": "pnpm --filter './packages/**' lint",
     "format:": "prettier --write .",
-    "test": "pnpm -r --bail test",
+    "test": "pnpm --filter './packages/**' test",
     "prepare": "simple-git-hooks"
   },
   "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com> (https://github.com/x7ddf74479jn5)",

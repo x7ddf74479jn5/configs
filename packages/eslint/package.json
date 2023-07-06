@@ -69,8 +69,7 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc -p .",
-    "test:eslint": "cd test && pnpm lint",
-    "test": "echo 'dummy script for CI'"
+    "test:eslint": "cd test && pnpm lint"
   },
   "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5"
 }
