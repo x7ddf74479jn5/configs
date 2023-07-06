@@ -10,8 +10,7 @@ jobs:
     name: Get changed packages
     runs-on: ubuntu-latest
     outputs:
-      names: ${{ steps.changed_packages.outputs.names }}
-      paths: ${{ steps.changed_packages.outputs.paths }}
+      package: ${{ steps.changed_packages.outputs.packages }}
       empty: ${{ steps.changed_packages.outputs.empty }}
     steps:
       - name: Checkout
@@ -29,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: ${{ fromJson(needs.generate_matrix.outputs.paths) }}
+        package: ${{ fromJson(needs.generate_matrix.outputs.package) }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node
@@ -52,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: ${{ fromJson(needs.generate_matrix.outputs.paths) }}
+        package: ${{ fromJson(needs.generate_matrix.outputs.package) }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node
