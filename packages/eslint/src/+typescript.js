@@ -29,6 +29,8 @@ module.exports = /** @type {const} */ ({
     '@typescript-eslint/ban-ts-comment': 0,
     // コーディングスタイル統一のため、`<T> expr` 形式の型アサーションを禁止して `expr as T` の使用を推奨する
     '@typescript-eslint/consistent-type-assertions': 2,
+    // `import type {}` 形式に強制する
+    '@typescript-eslint/consistent-type-imports': [2, { prefer: 'type-imports' }],
     // 強力すぎるため off に。プロジェクトごとに個別に ON にすることを想定している。
     '@typescript-eslint/explicit-module-boundary-types': 0,
     // コーディングスタイル統一のため、命名規則を設ける
@@ -91,6 +93,8 @@ module.exports = /** @type {const} */ ({
         format: null,
       },
     ],
+    // inline で型情報だけインポートする形式の `import { type A }` が `import {}` として残るのを防ぐ
+    '@typescript-eslint/no-import-type-side-effects': 2,
     // `require` は静的解析と相性が悪いため禁止する。
     // 代わりに ES Modules の使用を推奨する。
     '@typescript-eslint/no-require-imports': 2,
