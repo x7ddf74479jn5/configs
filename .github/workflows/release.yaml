@@ -20,33 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "PNPM_CACHE_DIR=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.PNPM_CACHE_DIR }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
-
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       - name: Setup npmrc
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,15 +30,14 @@ jobs:
             //npm.pkg.github.com/:_authToken=$NPM_TOKEN
             @x7ddf74479jn5:registry=https://npm.pkg.github.com/
           EOF
-
       - name: Create release PR or publish to GitHub Packages
         id: changesets
         uses: changesets/action@v1
         with:
           version: pnpm ci:version
           publish: pnpm ci:publish
-          title: "[ci] release"
-          commit: "[ci] release"
+          title: '[ci] release'
+          commit: '[ci] release'
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

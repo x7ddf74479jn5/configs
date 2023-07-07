@@ -31,13 +31,8 @@ jobs:
         package: ${{ fromJson(needs.generate_matrix.outputs.package) }}
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-      - name: Installing dependencies
-        run: pmpm install
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       # - name: Lint only changed packages
       # run: pnpm ci:lint
       - name: Lint only changed packages
@@ -54,13 +49,8 @@ jobs:
         package: ${{ fromJson(needs.generate_matrix.outputs.package) }}
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-      - name: Installing dependencies
-        run: pmpm install
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       # - name: Test only changed packages
       #   run: pnpm ci:test
       - name: Test only changed packages
