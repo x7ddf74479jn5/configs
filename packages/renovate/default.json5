@@ -36,8 +36,10 @@
   ],
   // 馴染みがあって、今使われているパッケージのバージョンがひと目で分かる bump 形式 (`^1.0.0` => `^1.1.0`) でバージョンの範囲を書き換える
   rangeStrategy: 'bump',
-  // PR の チェックで stabilityDays に設定した日数が経過したら pass な状態になる
-  stabilityDays: 3,
+  // PR の チェックで minimumReleaseAge に設定した日数が経過したら pass な状態になる
+  minimumReleaseAge: 3,
+  // renovate config をマイグレーションする
+  configMigration: true,
   packageRules: [
     // devDeps であれば CI が通れば安全にマージできるはずなので、major 以下で automerge を有効化する
     {
